@@ -1,0 +1,350 @@
+<!doctype html>
+    <!--[if lt IE 7 ]> <html class="ie6 ie ltie9 ltie8 no-js" lang="en"> <![endif]-->
+    <!--[if IE 7 ]>    <html class="ie7 ie ltie9 ltie8 no-js" lang="en"> <![endif]-->
+    <!--[if IE 8 ]>    <html class="ie8 ie ltie9 no-js" lang="en"> <![endif]-->
+    <!--[if IE 9 ]>    <html class="ie9 ie no-js" lang="en"> <![endif]-->
+    <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <script>
+            (function(H){H.className=H.className.replace(/\bno-js\b/,'js');})(document.documentElement);
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="Content-Language" content="en" />
+
+        <link rel="stylesheet" href="https://s3-media0.fl.yelpcdn.com/assets/srv0/engineering_pages/a361cec93c2b/assets/scss/engineering-pkg.css">
+            <link rel="stylesheet" href="https://s3-media0.fl.yelpcdn.com/assets/public/engineering_pages-main-pkg.yji-4d35c8a6d2b3da28416e.css">
+        <link rel="search" type="application/opensearchdescription+xml" href="/opensearch" title="Yelp" />
+
+        <title>Yelp Dataset</title>
+
+            <meta name="keywords" content="Yelp,recommendation,San Francisco, bay area, local,business,review,friend,restaurant,dentist,doctor,salon,spa,shopping,store,share,community,massage,sushi,pizza,nails,New York,Los Angeles">
+
+
+        
+
+        
+
+            <link rel="mask-icon" sizes="any" href="https://s3-media0.fl.yelpcdn.com/assets/public/yelp_burst.yji-b2bb2fb0ec9c1d12cb6b6f21efa6ae90.svg" content="#FF1A1A">
+    <link rel="shortcut icon" href="https://s3-media0.fl.yelpcdn.com/assets/public/favicon.yji-b05852393ae592f9e7de45f5aff5b657.ico">
+
+
+        
+
+
+
+        <script>
+            window.yelp = window.yelp || {};
+            window.yelp.cookieTypePreferencesHeader = '["ANALYTICS","FUNCTIONAL","INTERNAL","STRICTLY_NECESSARY","TARGETING"]';
+
+            function addCookieManagementScript() {
+                var tag = document.createElement('script');
+                tag.async = true;
+                tag.src = 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';
+                tag.type = 'text/javascript';
+                tag.charset = 'UTF-8';
+                tag.setAttribute('data-domain-script', '5fbcd417-fbc1-4fcc-abad-f622f1bba72d');
+                tag.setAttribute('data-document-language', 'true');
+
+                document.head.appendChild(tag);
+            }
+
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(addCookieManagementScript, { timeout: 4000 });
+            } else {
+                setTimeout(addCookieManagementScript, 2000);
+            }
+        </script>
+
+
+        <link rel="stylesheet" href="https://s3-media0.fl.yelpcdn.com/assets/srv0/engineering_pages/f2ca157914c8/assets/scss/dataset-pkg.css">
+
+        <script>
+            (function() {
+                var main = null;
+
+                main = function (serviceName, sha) {window.yelp_react = {serviceName: serviceName,sha: sha};};
+
+                if (main === null) {
+                    throw 'invalid inline script, missing main declaration.';
+                }
+                main("engineering_pages","522612db2e9bf0db133d5b4c92d15837176aceba");
+            })();
+    </script>
+
+            <script>            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+</script>
+
+
+
+        <script>
+            (function() {
+                var main = null;
+
+                import initGoogleAnalytics from '../init';
+import GoogleAnalytics from '../google_analytics';
+window.yelp_google_analytics = {
+  google_analytics: GoogleAnalytics
+};
+window.ygaPageStartTime = new Date().getTime();
+main = initGoogleAnalytics;
+
+                if (main === null) {
+                    throw 'invalid inline script, missing main declaration.';
+                }
+                main({"clientID": "809071184D6C7A5F", "dimensions": {"global": {"account_level": [1, null], "full_url": [15, "/dataset"], "internal_ip": [18, false], "referrer": [28, "https://bilkav.com/"]}, "www": {"account_level": [1, null], "full_url": [34, "/dataset"], "internal_ip": [27, false], "referrer": [64, "https://bilkav.com/"]}}, "domain": "yelp.com", "enable_high_volume_events": false, "ga_enabled": true, "js_dimensions": {"global": {}, "www": {}}, "metrics": {"global": {}, "www": {}}, "trackers": {"www": "UA-30501-24", "global": "UA-30501-1"}, "user_id": null},null);
+            })();
+    </script>
+
+    </head>
+
+    <body class="dataset responsive">
+        <script>(function (d, w) {
+    var supportsSVG = (
+        !!d.createElementNS &&
+        !!d.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'svg'
+        ).createSVGRect
+    );
+    var cdnPath = 'https://s3-media0.fl.yelpcdn.com/assets/srv0/svg_icons/08105747234e/assets/svg_sprite.js';
+    var head = d.getElementsByTagName('head')[0];
+    function fallback() {
+        var link = d.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://s3-media0.fl.yelpcdn.com/assets/srv0/svg_icons/219684bef0c6/assets/sprite.css';
+        head.appendChild(link);
+    }
+    if (!supportsSVG) {
+        fallback();
+        return;
+    }
+    if (!w.yelp) {
+        w.yelp = {};
+    }
+    w.yelp.__injectSvgSpritesheet = function (svg) {
+        document.body.insertAdjacentHTML('afterbegin', svg);
+        delete window.yelp.__injectSvgSpritesheet;
+    }
+    function onError() {
+        d.documentElement.className = [
+            d.documentElement.className,
+            'icon-svg-unavailable'
+        ].join(' ');
+        fallback();
+        return true;
+    }
+    var script = d.createElement('script');
+    script.async = true;
+    script.onerror = onError;
+    script.src = cdnPath + '?callback=window.yelp.__injectSvgSpritesheet';
+    head.appendChild(script);
+}(document, window));</script>
+<noscript>
+    <link rel="stylesheet" href="https://s3-media0.fl.yelpcdn.com/assets/srv0/svg_icons/219684bef0c6/assets/sprite.css">
+</noscript>
+            <div class="alert-notice js-alert-notice">
+            <iframe title="cookie notice" class="js-cookie-iframe hidden" src="/eu_cookie_notice" scrolling="no" allowtransparency="true" frameborder="0" style="border: 0; width: 100%;"></iframe>
+
+    </div>
+
+        
+            
+
+
+
+
+
+
+        <div class="main-header main-content-wrap js-main-header webview-hidden main-header--slim">
+            <div class="main-header_wrapper">
+                <div class="content-container">
+
+                    <div class="arrange arrange--18 arrange--middle main-header_arrange">
+
+                            <div class="arrange_unit main-header--full_arrange_unit">
+                                    <div class="main-header_logo js-analytics-click" id="logo" data-analytics-label="logo">
+        <a href="/dataset">Yelp</a>
+    </div>
+
+                            </div>
+
+                                <div class="arrange_unit u-nowrap">
+                                        <h2 class="main-header_title"><span>Dataset</span></h2>
+
+                                </div>
+
+
+                        <div class="arrange_unit arrange_unit--fill align-middle main-header--full_arrange_unit main-header_search-container">
+                    <div class="main-header_nav u-nowrap responsive-hidden-medium text-right">
+                    <nav id="header-nav">
+                <ul class="header-nav" role="menubar">
+            <li  class="header-nav_item js-analytics-click" data-analytics-label="None" role="none">
+                    
+
+
+    <div class="header-nav_link_container">
+            <a class="header-nav_link tabon" href="/dataset">
+
+            Dataset
+
+        </a>
+    </div>
+
+            </li>
+            <li  class="header-nav_item js-analytics-click" data-analytics-label="None" role="none">
+                    
+
+
+    <div class="header-nav_link_container">
+            <a class="header-nav_link" href="/dataset/documentation">
+
+            Documentation
+
+        </a>
+    </div>
+
+            </li>
+    </ul>
+
+        </nav>
+
+        </div>
+
+                        </div>
+
+
+
+                            <div class="arrange_unit u-nowrap hidden-non-responsive-table-cell responsive-hidden-large">
+                                <div class="main-header_nav-dropdown">
+                                        <nav id="topbar-account-item" class="user-account clearfix drop-menu-origin">
+        <a href="javascript:;" class="drop-menu-link inline-block clearfix user-account_button" aria-expanded="false" aria-controls="header-drop-menu-group--nav" tabindex="0" role="menubar" aria-owns="header-drop-menu-group--nav">
+            <span aria-label="Main Navigation" style="width: 24px; height: 24px;" class="icon icon--24-hamburger icon--size-24 icon--inverse icon--fallback-inverted drop-menu-link_open">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#24x24_hamburger" />
+    </svg>
+</span>
+            <span aria-label="Main Navigation" style="width: 24px; height: 24px;" class="icon icon--24-close icon--size-24 icon--inverse icon--fallback-inverted drop-menu-link_close">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#24x24_close" />
+    </svg>
+</span>
+        </a>
+
+        <div class="drop-menu drop-menu-has-arrow">
+            <div class="drop-menu-arrow responsive-hidden-small"></div>
+            <ul class="drop-menu-group drop-menu-group--nav" id="header-drop-menu-group--nav" aria-label="Account Navigation Menu">
+                        <li class="drop-down-menu-link" role="none">
+        <a class="js-analytics-click arrange arrange--middle arrange--6" href="/dataset" data-analytics-label="None" role="menuitem" tabindex="0">
+            <strong class="arrange_unit">
+                    Dataset
+            </strong>
+            <span class="arrange_unit arrange_unit--fill u-text-right">
+                <span aria-hidden="true" style="width: 24px; height: 24px;" class="icon icon--24-chevron-right icon--size-24 hidden-non-responsive-inline-block responsive-visible-medium-inline-block">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#24x24_chevron_right" />
+    </svg>
+</span>
+            </span>
+        </a>
+    </li>
+
+                        <li class="drop-down-menu-link" role="none">
+        <a class="js-analytics-click arrange arrange--middle arrange--6" href="/dataset/documentation" data-analytics-label="None" role="menuitem" tabindex="0">
+            <strong class="arrange_unit">
+                    Documentation
+            </strong>
+            <span class="arrange_unit arrange_unit--fill u-text-right">
+                <span aria-hidden="true" style="width: 24px; height: 24px;" class="icon icon--24-chevron-right icon--size-24 hidden-non-responsive-inline-block responsive-visible-medium-inline-block">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#24x24_chevron_right" />
+    </svg>
+</span>
+            </span>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    <div class="y-container y-container--shelf y-container--dataset u-text-centered">
+        <div class="y-container_content">
+            <h1>Yelp Open Dataset</h1>
+            <h3 class="alternate"><b>An all-purpose dataset for learning</b></h3>
+            <img src="https://s3-media0.fl.yelpcdn.com/assets/public/960x225_dataset.yji-04eb5a6d4caf0ee710b34bbb37d3f4cf.png" srcset="https://s3-media0.fl.yelpcdn.com/assets/public/960x225_dataset@2x.yji-6d323fc75cb1bec53d1c9851d45e204c.png 2x" width="960" class="media--fluid">
+        </div>
+    </div>
+
+        <div class="y-container--width-10 intro y-container--space-6">
+            <div class="y-container_content u-text-centered">
+                <p>The Yelp dataset is a subset of our businesses, reviews, and user data for use in personal, educational, and academic purposes. Available as JSON files, use it to teach students about databases, to learn NLP, or for sample production data while you learn how to make mobile apps.</p>
+            </div>
+        </div>
+
+
+    <div class="y-container dataset-body y-container--width-10">
+        <div class="y-container_content">
+            <h2 class="u-text-centered">The Dataset</h2>
+
+            <div class="section arrange arrange--equal u-text-centered">
+                <div class="arrange_unit">
+                    <img src="https://s3-media0.fl.yelpcdn.com/assets/public/120x120_reviews.yji-dca4c689154e5e61b2594152c877662e.png" srcset="https://s3-media0.fl.yelpcdn.com/assets/public/120x120_reviews@2x.yji-935481753e92281949c673c34dcdfe23.png 2x" width="120" class="media--fluid"><br>
+                    <b>6,990,280 reviews</b>
+                </div>
+                <div class="arrange_unit">
+                    <img src="https://s3-media0.fl.yelpcdn.com/assets/public/120x120_businesses.yji-3c789d5c2c354f3d51f2e4eb1158b78f.png" srcset="https://s3-media0.fl.yelpcdn.com/assets/public/120x120_businesses@2x.yji-0959141e76e5651abfcf29468b53855c.png 2x" width="120" class="media--fluid"><br>
+                    <b>150,346 businesses</b>
+                </div>
+                <div class="arrange_unit">
+                    <img src="https://s3-media0.fl.yelpcdn.com/assets/public/120x120_photos.yji-9780b07115c21b1d3a4e705034010fcd.png" srcset="https://s3-media0.fl.yelpcdn.com/assets/public/120x120_photos@2x.yji-42c0b0a84f6fde9df65bf427b0951fa2.png 2x" width="120" class="media--fluid"><br>
+                    <b>200,100 pictures</b>
+                </div>
+                <div class="arrange_unit">
+                    <img src="https://s3-media0.fl.yelpcdn.com/assets/public/120x120_cities.yji-67391179a735bdbb2243194ca00b1a72.png" srcset="https://s3-media0.fl.yelpcdn.com/assets/public/120x120_cities@2x.yji-18af94aed249e01a363f7ca1e6f2f90f.png 2x" width="120" class="media--fluid"><br>
+                    <b>11 metropolitan areas</b>
+                </div>
+            </div>
+
+            <div class="section u-text-centered">
+                <div>
+                    <ul>
+                        <li>908,915 tips by 1,987,897 users</li>
+                        <li>Over 1.2 million business attributes like hours, parking, availability, and ambience</li>
+                        <li>Aggregated check-ins over time for each of the 131,930 businesses</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="y-container y-container--width-10 intro u-text-centered y-container--space-9 no-background">
+        <div class="y-container_content">
+            <h2>Get Started</h2>
+
+            <div class="section">
+                <a href="/dataset/download" class="ybtn ybtn--primary">Download Dataset</a>
+            </div>
+
+            <div class="section">Visit the <a href="/dataset/documentation/main">documentation</a> for information on the structure of the dataset and how to get started.</div>
+        </div>
+    </div>
+
+        <yelp-react-root><div data-hypernova-key="engineering_pages__522612db2e9bf0db133d5b4c92d15837176aceba__engineering_pages__Footer__dynamic" data-hypernova-id="4ff96cd6-71f9-46ed-8171-2eac59f5f842"><div class=" footer__4014b__uQPtl border-color--default__4014b__RpFz8 background-color--gray-extra-light__4014b__z4Xv8"><div class=" page-wrapper__4014b__9n3pb"><div class=" arrange__4014b__PBKTR gutter-auto__4014b__uQCLT layout-equal__4014b__3S6t8 layout-stack-small__4014b__M1h3r border-color--default__4014b__RpFz8"><div class=" arrange-unit__4014b__f4XJY responsive-hidden-small__4014b__3isaF border-color--default__4014b__RpFz8"><div class=" margin-b2__4014b__7ylvV border-color--default__4014b__RpFz8"><h3 class="css-18es1no">About</h3></div><ul class=" undefined list__4014b__fUu5M"><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/about" class="css-11gvbtp">About Yelp</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/careers/home" class="css-11gvbtp">Careers</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/press" class="css-11gvbtp">Press</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="http://yelp-ir.com/" class="css-11gvbtp">Investor Relations</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://trust.yelp.com" class="css-11gvbtp">Trust &amp; Safety</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/guidelines" class="css-11gvbtp">Content Guidelines</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp-support.com/article/Yelp-Accessibility-Statement" class="css-11gvbtp">Accessibility Statement</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/static?p=tos" class="css-11gvbtp">Terms of Service</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/tos/privacy_policy" class="css-11gvbtp">Privacy Policy</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/static?p=tos#third-parties" class="css-11gvbtp">Ad Choices</a></li></ul></div><div class=" arrange-unit__4014b__f4XJY responsive-hidden-small__4014b__3isaF border-color--default__4014b__RpFz8"><div class=" margin-b2__4014b__7ylvV border-color--default__4014b__RpFz8"><h3 class="css-18es1no">Discover</h3></div><ul class=" undefined list__4014b__fUu5M"><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/costs" class="css-11gvbtp">Yelp Project Cost Guides</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/collections" class="css-11gvbtp">Collections</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/talk" class="css-11gvbtp">Talk</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/events" class="css-11gvbtp">Events</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/local_yelp" class="css-11gvbtp">The Local Yelp</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://officialblog.yelp.com/" class="css-11gvbtp">Yelp Blog</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp-support.com/" class="css-11gvbtp">Support</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/yelpmobile?source=footer" class="css-11gvbtp">Yelp Mobile</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/developers?country=US" class="css-11gvbtp">Developers</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/rss" class="css-11gvbtp">RSS</a></li></ul></div><div class=" arrange-unit__4014b__f4XJY responsive-hidden-small__4014b__3isaF border-color--default__4014b__RpFz8"><div class=" margin-b2__4014b__7ylvV border-color--default__4014b__RpFz8"><h3 class="css-18es1no">Yelp for Business</h3></div><ul class=" undefined list__4014b__fUu5M"><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://biz.yelp.com?utm_source=footer&amp;utm_medium=www&amp;utm_content=claim_footer_link&amp;utm_campaign=claim_business" class="css-11gvbtp">Claim your Business Page</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/advertise" class="css-11gvbtp">Advertise on Yelp</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://restaurants.yelp.com/" class="css-11gvbtp">Yelp for Restaurant Owners</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://restaurants.yelp.com/products/waitlist-table-management-software/" class="css-11gvbtp">Table Management</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://biz.yelp.com/support/case_studies" class="css-11gvbtp">Business Success Stories</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelp-support.com/Yelp_for_Business?l=en_US" class="css-11gvbtp">Business Support</a></li><li class=" margin-b1__4014b__OAPOl border-color--default__4014b__RpFz8"><a href="https://www.yelpblog.com/section/business" class="css-11gvbtp">Yelp Blog for Business</a></li></ul></div><div class=" arrange-unit__4014b__f4XJY border-color--default__4014b__RpFz8" data-testid="consumer_footer_normal"><div class=" margin-b2__4014b__7ylvV border-color--default__4014b__RpFz8"><h3 class="css-18es1no">Languages</h3><div class=" padding-t1__4014b__DrRp0 border-color--default__4014b__RpFz8"><div class=" dropdown__4014b__2mx65" role="presentation"><div><span class=" display--inline__4014b__I21Ca border-color--default__4014b__RpFz8"><span class=" css-1e4fdj9"><a href="" class="css-1cuazig" aria-expanded="false" aria-haspopup="listbox" role="button"><span class=" display--inline__4014b__I21Ca margin-r0-5__4014b__jpG2N border-color--default__4014b__RpFz8"><span class=" css-ralh0w">English</span></span><span aria-hidden="true" class="icon--16-chevron-down-v2 css-1x8jfzm"><svg width="16" height="16" class="icon_svg"><path d="M8 10.25a.746.746 0 01-.525-.215l-3.055-3a.75.75 0 011.05-1.07L8 8.449l2.53-2.484a.75.75 0 011.05 1.07l-3.055 3A.746.746 0 018 10.25z"/></svg></span></a></span></span></div></div></div></div><div class=" border-color--default__4014b__RpFz8"><h3 class="css-18es1no">Countries</h3><div class=" padding-t1__4014b__DrRp0 border-color--default__4014b__RpFz8"><div class=" dropdown__4014b__2mx65" role="presentation"><div><span class=" display--inline__4014b__I21Ca border-color--default__4014b__RpFz8"><span class=" css-1e4fdj9"><a href="" class="css-1cuazig" aria-expanded="false" aria-haspopup="listbox" role="button"><span class=" display--inline__4014b__I21Ca margin-r0-5__4014b__jpG2N border-color--default__4014b__RpFz8"><span class=" css-ralh0w">United States</span></span><span aria-hidden="true" class="icon--16-chevron-down-v2 css-1x8jfzm"><svg width="16" height="16" class="icon_svg"><path d="M8 10.25a.746.746 0 01-.525-.215l-3.055-3a.75.75 0 011.05-1.07L8 8.449l2.53-2.484a.75.75 0 011.05 1.07l-3.055 3A.746.746 0 018 10.25z"/></svg></span></a></span></span></div></div></div></div></div></div><div class=" display--none__4014b__pkFu5 responsive-small-display-block__4014b__81lje padding-t4__4014b__EoxvM border-color--default__4014b__RpFz8"><ul class=""><li class=" mobile-list-item__4014b__IL6Kt"><span class=" css-9t8tgp"><div class=" display--inline-block__4014b__-g9fu padding-r0-5__4014b__EWJ6+ border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/about" class="css-53c188">About</a></div></span></li><li class=" mobile-list-item__4014b__IL6Kt"><span class=" css-9t8tgp"><div class=" display--inline-block__4014b__-g9fu padding-r0-5__4014b__EWJ6+ border-color--default__4014b__RpFz8"><a href="https://officialblog.yelp.com/" class="css-53c188">Blog</a></div></span></li><li class=" mobile-list-item__4014b__IL6Kt"><span class=" css-9t8tgp"><div class=" display--inline-block__4014b__-g9fu padding-r0-5__4014b__EWJ6+ border-color--default__4014b__RpFz8"><a href="https://www.yelp-support.com/" class="css-53c188">Support</a></div></span></li><li class=" mobile-list-item__4014b__IL6Kt"><span class=" css-9t8tgp"><div class=" display--inline-block__4014b__-g9fu padding-r0-5__4014b__EWJ6+ border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/static?p=tos" class="css-53c188">Terms</a></div></span></li><li class=" mobile-list-item__4014b__IL6Kt"><span class=" css-1sufhje"><div class=" display--inline-block__4014b__-g9fu border-color--default__4014b__RpFz8"><a href="https://www.yelp.com/tos/privacy_policy" class="css-53c188">Privacy Policy</a></div></span></li></ul></div><div class=" margin-t6__4014b__M0tur margin-sm-t3__4014b__sxIrX border-color--default__4014b__RpFz8"><div class=" border-color--default__4014b__RpFz8"><p class=" css-1rw3tz3">Copyright © 2004–2022 Yelp Inc. Yelp,<!-- --> <img class=" align-bottom__4014b__55O20" src="https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_design_cdn/7ef71bf77a33/assets/img/brand/logo_desktop.svg" alt="Yelp logo" width="38" height="19"/>, <!-- --> <img class=" burst__4014b__-KusU" src="https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_design_cdn/cabcef1daea2/assets/img/brand/burst_red.svg" alt="Yelp burst" width="14" height="16"/> <!-- -->and related marks are registered trademarks of Yelp.</p></div></div></div></div></div>
+<script type="application/json" data-hypernova-key="engineering_pages__522612db2e9bf0db133d5b4c92d15837176aceba__engineering_pages__Footer__dynamic" data-hypernova-id="4ff96cd6-71f9-46ed-8171-2eac59f5f842"><!--{"messages":{"Close":"Close","Menu":"Menu","Copyright © 2004–%{currentYear} Yelp":"Copyright © 2004–%{currentYear} Yelp","Terms of Service":"Terms of Service","Privacy Policy":"Privacy Policy","Ad Choices":"Ad Choices","Blog":"Blog","Content Guidelines":"Content Guidelines","Webinars":"Webinars","Support":"Support","Yelp for Business app":"Yelp for Business app","Need help?":"Need help?","<strong&gt;Go mobile </strong&gt; with the <a href=%{mobileAppLinkHref}&gt; %{mobileAppLinkText} </a&gt; for iOS and Android":"<strong&gt;Go mobile </strong&gt; with the <a href=%{mobileAppLinkHref}&gt; %{mobileAppLinkText} </a&gt; for iOS and Android","Some Data By Acxiom":"Some Data By Acxiom","Business Listings provided by Yellow Pages®":"Business Listings provided by Yellow Pages®","Some business data by <a target=\"_blank\" rel=\"nofollow\" href=\"http://www.yellow.com.tr\" class=\"%{classes}\"&gt;Yellow.com.tr</a&gt;":"Some business data by <a target=\"_blank\" rel=\"nofollow\" href=\"http://www.yellow.com.tr\" class=\"%{classes}\"&gt;Yellow.com.tr</a&gt;","<a %{recaptcha_info}&gt;This site is protected by reCAPTCHA -</a&gt; <a %{google_pp}&gt;See additional Privacy Policy</a&gt; <a %{google_tos}&gt;and Terms</a&gt;":"<a %{recaptcha_info}&gt;This site is protected by reCAPTCHA -</a&gt; <a %{google_pp}&gt;See additional Privacy Policy</a&gt; <a %{google_tos}&gt;and Terms</a&gt;","<a %{hcaptcha_info}&gt;This site is protected by hCaptcha - </a&gt; <a %{hcaptcha_pp}&gt;See additional Privacy Policy</a&gt; <a %{hcaptcha_tos}&gt;and Terms</a&gt;":"<a %{hcaptcha_info}&gt;This site is protected by hCaptcha - </a&gt; <a %{hcaptcha_pp}&gt;See additional Privacy Policy</a&gt; <a %{hcaptcha_tos}&gt;and Terms</a&gt;","Languages":"Languages","Countries":"Countries","Toggle Menu":"Toggle Menu","NEW":"NEW","Yelp Header":"Yelp Header","Status":"Status"},"localeCode":"en_US","consumerFooterProps":{"localeCode":"en_US","baseUrl":"https://www.yelp.com/","currentUrl":"http://www.yelp.com/dataset","locationCookieCountryCode":"US"}}--></script><script data-apollo-state="4ff96cd6-71f9-46ed-8171-2eac59f5f842" type="application/json"><!--{&quot;$ROOT_QUERY.webConsumerFooter.copyright&quot;:{&quot;burstLogo&quot;:&quot;https:&#x2F;&#x2F;s3-media0.fl.yelpcdn.com&#x2F;assets&#x2F;srv0&#x2F;yelp_design_cdn&#x2F;cabcef1daea2&#x2F;assets&#x2F;img&#x2F;brand&#x2F;burst_red.svg&quot;,&quot;defaultLogo&quot;:&quot;https:&#x2F;&#x2F;s3-media0.fl.yelpcdn.com&#x2F;assets&#x2F;srv0&#x2F;yelp_design_cdn&#x2F;7ef71bf77a33&#x2F;assets&#x2F;img&#x2F;brand&#x2F;logo_desktop.svg&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterCopyright&quot;},&quot;$ROOT_QUERY.webConsumerFooter&quot;:{&quot;copyright&quot;:{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter.copyright&quot;,&quot;typename&quot;:&quot;WebConsumerFooterCopyright&quot;},&quot;__typename&quot;:&quot;WebConsumerFooter&quot;},&quot;ROOT_QUERY&quot;:{&quot;webConsumerFooter&quot;:{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter&quot;,&quot;typename&quot;:&quot;WebConsumerFooter&quot;},&quot;webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}})&quot;:{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}})&quot;,&quot;typename&quot;:&quot;WebConsumerFooter&quot;}},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0&quot;:{&quot;title&quot;:&quot;About&quot;,&quot;links&quot;:[{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.0&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.1&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.2&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.3&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.4&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.5&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.6&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.7&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.8&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.9&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;}],&quot;__typename&quot;:&quot;WebConsumerFooterColumn&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.0&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;about&quot;,&quot;text&quot;:&quot;About Yelp&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.1&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;careers&#x2F;home&quot;,&quot;text&quot;:&quot;Careers&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.2&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;press&quot;,&quot;text&quot;:&quot;Press&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.3&quot;:{&quot;href&quot;:&quot;http:&#x2F;&#x2F;yelp-ir.com&#x2F;&quot;,&quot;text&quot;:&quot;Investor Relations&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.4&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;trust.yelp.com&quot;,&quot;text&quot;:&quot;Trust &amp; Safety&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.5&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;guidelines&quot;,&quot;text&quot;:&quot;Content Guidelines&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.6&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp-support.com&#x2F;article&#x2F;Yelp-Accessibility-Statement&quot;,&quot;text&quot;:&quot;Accessibility Statement&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.7&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;static?p=tos&quot;,&quot;text&quot;:&quot;Terms of Service&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.8&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;tos&#x2F;privacy_policy&quot;,&quot;text&quot;:&quot;Privacy Policy&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0.links.9&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;static?p=tos#third-parties&quot;,&quot;text&quot;:&quot;Ad Choices&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1&quot;:{&quot;title&quot;:&quot;Discover&quot;,&quot;links&quot;:[{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.0&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.1&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.2&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.3&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.4&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.5&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.6&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.7&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.8&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.9&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;}],&quot;__typename&quot;:&quot;WebConsumerFooterColumn&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.0&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;costs&quot;,&quot;text&quot;:&quot;Yelp Project Cost Guides&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.1&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;collections&quot;,&quot;text&quot;:&quot;Collections&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.2&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;talk&quot;,&quot;text&quot;:&quot;Talk&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.3&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;events&quot;,&quot;text&quot;:&quot;Events&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.4&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;local_yelp&quot;,&quot;text&quot;:&quot;The Local Yelp&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.5&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;officialblog.yelp.com&#x2F;&quot;,&quot;text&quot;:&quot;Yelp Blog&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.6&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp-support.com&#x2F;&quot;,&quot;text&quot;:&quot;Support&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.7&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;yelpmobile?source=footer&quot;,&quot;text&quot;:&quot;Yelp Mobile&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.8&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;developers?country=US&quot;,&quot;text&quot;:&quot;Developers&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1.links.9&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;rss&quot;,&quot;text&quot;:&quot;RSS&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2&quot;:{&quot;title&quot;:&quot;Yelp for Business&quot;,&quot;links&quot;:[{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.0&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.1&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.2&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.3&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.4&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.5&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.6&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;}],&quot;__typename&quot;:&quot;WebConsumerFooterColumn&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.0&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;biz.yelp.com?utm_source=footer&amp;utm_medium=www&amp;utm_content=claim_footer_link&amp;utm_campaign=claim_business&quot;,&quot;text&quot;:&quot;Claim your Business Page&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.1&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;advertise&quot;,&quot;text&quot;:&quot;Advertise on Yelp&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.2&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;restaurants.yelp.com&#x2F;&quot;,&quot;text&quot;:&quot;Yelp for Restaurant Owners&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.3&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;restaurants.yelp.com&#x2F;products&#x2F;waitlist-table-management-software&#x2F;&quot;,&quot;text&quot;:&quot;Table Management&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.4&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;biz.yelp.com&#x2F;support&#x2F;case_studies&quot;,&quot;text&quot;:&quot;Business Success Stories&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.5&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp-support.com&#x2F;Yelp_for_Business?l=en_US&quot;,&quot;text&quot;:&quot;Business Support&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2.links.6&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelpblog.com&#x2F;section&#x2F;business&quot;,&quot;text&quot;:&quot;Yelp Blog for Business&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}})&quot;:{&quot;desktopColumns&quot;:[{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.0&quot;,&quot;typename&quot;:&quot;WebConsumerFooterColumn&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.1&quot;,&quot;typename&quot;:&quot;WebConsumerFooterColumn&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).desktopColumns.2&quot;,&quot;typename&quot;:&quot;WebConsumerFooterColumn&quot;}],&quot;mobileColumns&quot;:[{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0&quot;,&quot;typename&quot;:&quot;WebConsumerFooterColumn&quot;}],&quot;__typename&quot;:&quot;WebConsumerFooter&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0&quot;:{&quot;title&quot;:&quot;&quot;,&quot;links&quot;:[{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0.links.0&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0.links.1&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0.links.2&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0.links.3&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;},{&quot;type&quot;:&quot;id&quot;,&quot;generated&quot;:true,&quot;id&quot;:&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0.links.4&quot;,&quot;typename&quot;:&quot;WebConsumerFooterLink&quot;}],&quot;__typename&quot;:&quot;WebConsumerFooterColumn&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0.links.0&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;about&quot;,&quot;text&quot;:&quot;About&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0.links.1&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;officialblog.yelp.com&#x2F;&quot;,&quot;text&quot;:&quot;Blog&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0.links.2&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp-support.com&#x2F;&quot;,&quot;text&quot;:&quot;Support&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0.links.3&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;static?p=tos&quot;,&quot;text&quot;:&quot;Terms&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;},&quot;$ROOT_QUERY.webConsumerFooter({\&quot;baseUrl\&quot;:\&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;\&quot;,\&quot;urlOptions\&quot;:{}}).mobileColumns.0.links.4&quot;:{&quot;href&quot;:&quot;https:&#x2F;&#x2F;www.yelp.com&#x2F;tos&#x2F;privacy_policy&quot;,&quot;text&quot;:&quot;Privacy Policy&quot;,&quot;__typename&quot;:&quot;WebConsumerFooterLink&quot;}}--></script></yelp-react-root>
+
+        <script src="https://s3-media0.fl.yelpcdn.com/assets/srv0/cdn_assets/6fef55c62df3/assets/vendor/babel-polyfill/6.23.0/polyfill.min.js" crossorigin="anonymous" integrity="sha384-FbHUaR69a828hqWjPw4PFllFj1bvveKOTWORGkyosCw720HXy/56+2hSuQDaogMb"></script><script src="https://s3-media0.fl.yelpcdn.com/assets/srv0/cdn_assets/8226265a1a2e/assets/vendor/react/16.11.0/umd/react.production.min.js" crossorigin="anonymous" integrity="sha384-FV1ihVoO32GM2yI7xUO+aiUvx9DBv0ij+ZAll/zyrnYtrau6lHoU0pNlPaTyxwY5"></script><script src="https://s3-media0.fl.yelpcdn.com/assets/srv0/cdn_assets/7ecac828635c/assets/vendor/react-dom/16.11.0/umd/react-dom.production.min.js" crossorigin="anonymous" integrity="sha384-DKCYC4E+rKzgjhFzDyzTeiINEiflQwz1v6CaAva6fJKKbqnIFlsJ+tVObwILzwap"></script><script src="https://s3-media0.fl.yelpcdn.com/assets/srv0/cdn_assets/cfa9051cc0b0/assets/vendor/jquery/1.8.2/jquery.min.js" crossorigin="anonymous" integrity="sha384-TlirNbKpD2RIgh6I9thXvaNiNhPn2e4sI0Adwq4SwWXvDMdol60LTz9m/24VynHW"></script><script src="https://s3-media0.fl.yelpcdn.com/assets/public/module_engineering_pages_main.yji-5daf4cd7a7da5765f60f.js"></script><script>window.yelp.engineering_pages.init();window.yelp.engineering_pages.hydrateComponents();</script>
+    </body>
+    </html>
